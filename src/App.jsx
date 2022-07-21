@@ -7,7 +7,19 @@ function App() {
   const [count, setCount] = useState(false)
   const [stop, setStop] = useState(0)
 
-  const start = () => setCount(true)
+  const [live, setLive] = useState(false)
+  const [save, setSave] = useState(false)
+
+  const start = () => {
+    if(!live) {
+      setCount(true)
+      setLive(true)
+    } else if(live) {
+      setCount(false)
+      setLive(false)
+    }
+    
+  }
 
   const handle = (aa) => {
     setStop(aa)
@@ -28,17 +40,17 @@ function App() {
         <button onClick={() => start()}>
           count
         </button>
-        <button onClick={() => {
-            setCount(false)
-          }}>
-          Stop
-        </button>
-        <p>
+
+        <p> 
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      {!count && <h1>{stop}</h1>}
-      {count && <Clock men={(ee) => handle(ee)}/>}
+      {!count
+      &&
+      <h1>{Math.floor(stop / 100) > 9 ? Math.floor(stop / 100) : "0" + Math.floor(stop / 100) } . {stop%100 > 9 ? stop%100 : "0" + stop%100}</h1>}
+      {count
+      &&
+      <Clock men={(ee) => handle(ee)}/>}
     </div>
   )
 }
