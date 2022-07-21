@@ -6,21 +6,19 @@ function Clock({men}) {
   useEffect(() => {
     const interval = setInterval(() => {
       setSeg(seg => seg + 1);
-    }, 1000);
+    }, 10);
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    console.log('aaa', seg)
-      men(seg)
+  useEffect(() => {  
     return () => {
-      
+      men(seg)
     }
   }, [seg])
 
   return (
     <h1>
-      {seg}
+      {Math.floor(seg / 100) > 9 ? Math.floor(seg / 100) : "0" + Math.floor(seg / 100) } . {seg%100 > 9 ? seg%100 : "0" + seg%100}
     </h1>
   )
 }
