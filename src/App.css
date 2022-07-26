@@ -39,3 +39,9 @@
 .read-the-docs {
   color: #888;
 }
+
+.boxImages {
+  background-color: white;
+  padding: 50px;
+  border-radius: 20px;
+}
