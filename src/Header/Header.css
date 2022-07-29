@@ -1,0 +1,68 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0;
+  font-family: "GoogleSans";
+  padding: 0 max(30px, 4%);
+  position: sticky;
+  top: 0;
+}
+
+.rightHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.logoHeader {
+  width: 50px;
+  margin: 10px;
+}
+
+.titleHeader {
+  font-size: 1.6rem;
+  color: #5f6368;
+}
+
+.leftHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.btnSettingsHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background-color: transparent;
+  filter: invert(20%);
+  transition: filter 120ms;
+}
+
+.btnSettingsHeader:hover {
+  filter: invert(50%);
+}
+
+.icoSettingsHeader {
+  width: 30px;
+  margin: 5px;
+}
+
+.btnLoginHeader {
+  border: 0;
+  font-family: "GoogleSansBold";
+  color: white;
+  background-color: orange;
+  border-radius: 7px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  transition: all 100ms;
+}
+
+.btnLoginHeader:hover {
+  background-color: rgb(236, 154, 0);
+}
