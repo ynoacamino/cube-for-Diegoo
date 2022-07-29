@@ -9,11 +9,17 @@
 }
 
 @font-face {
+  font-family: "GoogleSansLigth";
+  src: url("/src/fonts/ProductSans-Light.ttf");
+}
+
+@font-face {
   font-family: 'Clock';
   src: url('/src/fonts/DS-DIGI.TTF') format('truetype');
   font-style: normal;
   font-weight: normal;
 }
+
 
 body {
   padding: 0;
