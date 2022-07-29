@@ -1,6 +1,6 @@
 import './Header.css';
 import React from 'react';
-import LogoCube from '../imgs/logoCube.png';
+import LogoCube from '../imgs/logoCube2.svg';
 import Settings from '../imgs/settings.png';
 
 function Header() {
