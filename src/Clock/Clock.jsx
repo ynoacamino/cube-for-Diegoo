@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Clock.css';
 
 function Clock({ men }) {
   const [seg, setSeg] = useState(0);
@@ -16,13 +17,13 @@ function Clock({ men }) {
   }, [seg]);
 
   return (
-    <h1>
-      {Math.floor(seg / 100) > 9 ? Math.floor(seg / 100) : `0${Math.floor(seg / 100)}` }
-      {' '}
+    <span className="Clock">
+      <span className="partClock">{Math.floor(seg / 100) > 9 ? Math.floor(seg / 100) : `0${Math.floor(seg / 100)}` }</span>
       .
-      {' '}
-      {seg % 100 > 9 ? seg % 100 : `0${seg % 100}`}
-    </h1>
+      <span className="partClock">
+        {seg % 100 > 9 ? seg % 100 : `0${seg % 100}`}
+      </span>
+    </span>
   );
 }
 
