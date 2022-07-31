@@ -1,43 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Clock from '../Clock/Clock';
 import Reloj from '../Reloj/Reloj';
 
 function ModuleTime() {
-  const [count, setCount] = useState(false);
-  const [stop, setStop] = useState(0);
-  const [live, setLive] = useState(false);
-
-  const start = (key) => {
-    if (!live && key === 32) {
-      setCount(true);
-      setLive(true);
-    } else if (live && key === 32) {
-      setCount(false);
-      setLive(false);
-    }
+  const [time, setTime] = useState(0);
+  const [live, _setLive] = useState(false);
+  const liveRef = useRef(false);
+  const setLive = (valor) => {
+    _setLive(valor);
+    liveRef.current = valor;
   };
+  const cicle = useRef(0);
 
   useEffect(() => {
-    window.addEventListener('keyup', ({ keyCode }) => start(keyCode));
+    if (cicle.current === 0 && live === false) {
+      cicle.current += 1;
+    } else if (cicle.current !== 0 && live === false) {
+      console.log('finish scramble');
+    }
+  }, [live]);
+
+  useEffect(() => {
+    const go = ({ keyCode }) => {
+      if (liveRef.current && keyCode === 32) {
+        setLive(false);
+      } else if (!liveRef.current && keyCode === 32) {
+        setLive(true);
+      }
+    };
+
+    window.addEventListener('keyup', go);
     return () => {
-      window.removeEventListener('keydown', ({ keyCode }) => start(keyCode));
+      window.removeEventListener('keyup', go);
     };
   }, []);
 
-  const handle = (time) => {
-    setStop(time);
+  const handle = (mSeg) => {
+    setTime(mSeg);
   };
 
   return (
     <>
-      <button onClick={() => start(32)} type="button">
-        count
-      </button>
-      {!count
-      && (
-        <Reloj stop={stop} />
-      )}
-      {count && <Clock men={(ee) => handle(ee)} />}
+      {!live && <Reloj stop={time} />}
+      {live && <Clock men={(mSeg) => handle(mSeg)} />}
     </>
   );
 }
