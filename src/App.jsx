@@ -14,9 +14,7 @@ function App() {
         <Gif />
         <Scramble />
         <ModuleTime />
-        <span className="instruccionesApp">
-          Presiona spacio
-        </span>
+        <span className="instruccionesApp">Presiona spacio</span>
       </div>
     </>
   );
