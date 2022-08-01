@@ -11,7 +11,7 @@ function Clock({ men }) {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => () => {
+  useEffect(() => {
     men(seg);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seg]);
