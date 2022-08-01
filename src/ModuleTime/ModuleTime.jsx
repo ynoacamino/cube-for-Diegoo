@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Clock from '../Clock/Clock';
 import Reloj from '../Reloj/Reloj';
 
-function ModuleTime() {
+function ModuleTime({ end }) {
   const [time, setTime] = useState(0);
   const [live, _setLive] = useState(false);
   const liveRef = useRef(false);
@@ -16,7 +16,7 @@ function ModuleTime() {
     if (cicle.current === 0 && live === false) {
       cicle.current += 1;
     } else if (cicle.current !== 0 && live === false) {
-      console.log('finish scramble');
+      end(time);
     }
   }, [live]);
 
