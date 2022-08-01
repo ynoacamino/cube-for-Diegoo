@@ -1,11 +1,10 @@
 import './Scramble.css';
 import React from 'react';
-import desarmador from './main';
 
-function Scramble() {
+function Scramble({ scramble }) {
   return (
     <div className="Scramble">
-      {desarmador()}
+      {scramble}
     </div>
   );
 }
