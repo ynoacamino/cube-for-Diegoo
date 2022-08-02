@@ -1,0 +1,36 @@
+.Times {
+  background-color: white;
+  width: min(1000px, 90vw);
+  margin: 100px 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'GoogleSans';
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0;
+}
+
+.headerTimes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #6d6d6d;
+  text-decoration: underline;
+}
+
+.icoBtnRemove{
+  width: 30px;
+  transition: all 200ms;
+}
+
+.icoBtnRemove:hover {
+  filter: invert(50%);
+}
+
+.btnRemoveTimes {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
