@@ -67,3 +67,19 @@
 .btnLoginHeader:hover {
   background-color: rgb(236, 154, 0);
 }
+
+.boxNormalModal {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.boxShadowModal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.267);
+  top: 0;
+  left: 0;
+}
+
