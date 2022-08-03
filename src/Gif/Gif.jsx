@@ -1,6 +1,6 @@
 import React from 'react';
 import one from '../imgs/one.gif';
-import cero from '../imgs/12.gif';
+import cero from '../imgs/newGif12.gif';
 import './Gif.css';
 
 function Cat({ live }) {
