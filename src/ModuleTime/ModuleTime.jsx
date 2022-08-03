@@ -28,10 +28,18 @@ function ModuleTime({ end }) {
         setLive(true);
       }
     };
-
+    const notScroll = (e) => {
+      console.log('stop112');
+      if (e.keyCode === 32 && e.target === document.body) {
+        console.log('stop');
+        e.preventDefault();
+      }
+    };
     window.addEventListener('keyup', go);
+    window.addEventListener('keydown', notScroll);
     return () => {
       window.removeEventListener('keyup', go);
+      window.removeEventListener('keydown', notScroll);
     };
   }, []);
 
