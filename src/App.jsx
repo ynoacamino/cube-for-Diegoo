@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Header from './Header/Header';
@@ -14,23 +15,25 @@ function App() {
   const [times, setTimes] = useState([]);
 
   useEffect(() => {
-    console.log('inicio');
-    JSON.parse(localStorage.getItem('dataUser'));
-    if (localStorage.getItem('dataUser')) {
+    if (JSON.parse(localStorage.getItem('dataUser')) && JSON.parse(localStorage.getItem('dataUser')).length > 0) {
       setTimes(JSON.parse(localStorage.getItem('dataUser')));
     } else {
-      console.log('a');
-      localStorage.setItem('dataUser', JSON.stringify(times));
+      localStorage.setItem('dataUser', times);
     }
   }, []);
 
   const end = (time) => {
-    setTimes((oldArray) => [...oldArray, { time, scram }]);
+    console.log(times);
+    setTimes((oldArray) => [{ time, scram }, ...oldArray]);
     setScram(desarmador());
   };
 
+  const reset = () => {
+    setTimes([]);
+  };
+
   useEffect(() => {
-    console.log(times);
+    localStorage.setItem('dataUser', JSON.stringify(times));
   }, [times]);
 
   return (
@@ -41,7 +44,7 @@ function App() {
         <Scramble scramble={scram} />
         <ModuleTime end={(time) => end(time)} />
         <span className="instruccionesApp">Presiona spacio</span>
-
+        <Times times={times} reset={reset} />
       </div>
     </>
   );
