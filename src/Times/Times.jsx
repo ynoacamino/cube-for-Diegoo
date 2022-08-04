@@ -3,7 +3,9 @@ import React from 'react';
 import trashBin from '../imgs/trash-bin.png';
 import SingleTime from './SingleTime/SingleTime';
 
-function Times({ times, reset }) {
+function Times({
+  times, reset, removeSingle, moreTwo, DNF,
+}) {
   return (
     <div className="Times">
       <div className="headerTimes">
@@ -23,6 +25,9 @@ function Times({ times, reset }) {
           num={times.length - (index)}
           time={single.time}
           scramble={single.scram}
+          DNF={DNF}
+          removeSingle={removeSingle}
+          moreTwo={moreTwo}
         />
       ))}
       {times.length === 0 && <span>Aun no hay datos</span>}
