@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import LogoCube from '../imgs/logoCube2.svg';
 import Settings from '../imgs/settings.png';
 import LateralBar from './LateralBar/LateralBar';
+import icoGoogle from '../imgs/google.png';
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -34,7 +35,9 @@ function Header() {
           className="btnLoginHeader pointer"
           type="button"
         >
+          <img src={icoGoogle} alt="google" className="icoGoogle" />
           Log in
+
         </button>
       </div>
       <div aria-hidden="true" onClick={clickOpen} className={`boxNormalModal ${open && 'boxShadowModal'}`} />
