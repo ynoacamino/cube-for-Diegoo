@@ -32,6 +32,18 @@ function App() {
     setTimes([]);
   };
 
+  const DNF = () => {
+    console.log('DNf');
+  };
+
+  const removeSingle = () => {
+    console.log('DremoveSingle');
+  };
+
+  const moreTwo = () => {
+    console.log('moreTwo');
+  };
+
   useEffect(() => {
     localStorage.setItem('dataUser', JSON.stringify(times));
   }, [times]);
@@ -44,7 +56,13 @@ function App() {
         <Scramble scramble={scram} />
         <ModuleTime end={(time) => end(time)} />
         <span className="instruccionesApp">Presiona spacio</span>
-        <Times times={times} reset={reset} />
+        <Times
+          times={times}
+          reset={reset}
+          DNF={DNF}
+          moreTwo={moreTwo}
+          removeSingle={removeSingle}
+        />
       </div>
     </>
   );
