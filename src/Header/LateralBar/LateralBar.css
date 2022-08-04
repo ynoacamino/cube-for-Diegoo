@@ -24,6 +24,7 @@
   align-items: center;
   gap: 30px;
   overflow: hidden;
+  color: rgb(66, 66, 66);
 }
 
 .NavMobileView {
@@ -57,4 +58,26 @@
 
 li {
   list-style: none;
+}
+
+.boxSettings {
+  height: 70%;
+
+  width: 85%;
+}
+
+.optionsTheme, .optionsCube{
+  display: flex;
+  flex-direction: column;
+  font-family: 'GoogleSansLigth';
+  font-size: 1.7rem;
+  margin-left: 20px;
+  gap: 10px;
+}
+
+label {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px
 }
