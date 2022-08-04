@@ -61,7 +61,10 @@
   border-radius: 7px;
   padding: 10px 20px;
   font-size: 1.2rem;
+  display: flex;
   transition: all 100ms;
+  align-items: center;
+  gap: 10px;
 }
 
 .btnLoginHeader:hover {
@@ -83,3 +86,8 @@
   left: 0;
 }
 
+.icoGoogle {
+  width: 35px;
+  filter:grayscale(1);
+  filter:brightness(6);
+}
