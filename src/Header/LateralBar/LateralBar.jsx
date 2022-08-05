@@ -10,7 +10,7 @@ function LateralBar({ open, func }) {
         <span>Theme:</span>
         <div className="optionsTheme">
           <label htmlFor="white">
-            <input type="radio" name="theme" id="white" />
+            <input type="radio" name="theme" id="white" checked />
             Light theme
           </label>
 
@@ -24,17 +24,17 @@ function LateralBar({ open, func }) {
         <div className="optionsCube">
 
           <label htmlFor="2x2x2">
-            <input type="radio" name="theme" id="2x2x2" />
+            <input type="radio" name="cube" id="2x2x2" />
             2x2x2 cube
           </label>
 
           <label htmlFor="3x3x3">
-            <input type="radio" name="theme" id="3x3x3" />
+            <input type="radio" name="cube" id="3x3x3" checked />
             3x3x3 cube
           </label>
 
           <label htmlFor="4x4x4">
-            <input type="radio" name="theme" id="4x4x4" />
+            <input type="radio" name="cube" id="4x4x4" />
             4x4x4 cube
           </label>
         </div>
