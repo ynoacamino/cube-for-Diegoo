@@ -32,16 +32,30 @@ function App() {
     setTimes([]);
   };
 
-  const DNF = () => {
-    console.log('DNf');
+  const DNF = (a, b) => {
+    console.log('DNf', a, b);
+    const indexTime = times.findIndex((element) => element.scram === b);
+    console.log(indexTime);
   };
 
-  const removeSingle = () => {
-    console.log('DremoveSingle');
+  const removeSingle = (a, b) => {
+    console.log('DremoveSingle', a, b);
+    const indexTime = times.findIndex((element) => element.scram === b);
+    console.log(indexTime);
+    const arrOld = times;
+    arrOld.splice(indexTime, 1);
+    console.log('delete', arrOld);
+    setTimes([...arrOld]);
   };
 
-  const moreTwo = () => {
-    console.log('moreTwo');
+  const moreTwo = (a, b) => {
+    console.log('moreTwo', a, b);
+    const indexTime = times.findIndex((element) => element.scram === b);
+    const arrOld = times;
+    // eslint-disable-next-line operator-assignment
+    arrOld[indexTime].time = arrOld[indexTime].time + 200;
+    setTimes([...arrOld]);
+    console.log(indexTime);
   };
 
   useEffect(() => {
@@ -59,9 +73,9 @@ function App() {
         <Times
           times={times}
           reset={reset}
-          DNF={DNF}
-          moreTwo={moreTwo}
-          removeSingle={removeSingle}
+          DNF={(a, b) => DNF(a, b)}
+          moreTwo={(a, b) => moreTwo(a, b)}
+          removeSingle={(a, b) => removeSingle(a, b)}
         />
       </div>
     </>
