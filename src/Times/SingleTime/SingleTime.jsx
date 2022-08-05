@@ -24,13 +24,13 @@ function SingleTime({
         <span className="scrambleSingleTime">{scramble}</span>
       </div>
       <div className="leftTime">
-        <button className="btnTime pointer btnMoreTwo" type="button" onClick={moreTwo}>
+        <button className="btnTime pointer btnMoreTwo" type="button" onClick={() => moreTwo(time, scramble)}>
           <img className="icoBtnTime" src={two} alt="moreTwo" />
         </button>
-        <button className="btnTime pointer" type="button" onClick={DNF}>
+        <button className="btnTime pointer" type="button" onClick={() => DNF(time, scramble)}>
           <img className="icoBtnTime" src={dnf} alt="DNF" />
         </button>
-        <button className="btnTime pointer" type="button" onClick={removeSingle}>
+        <button className="btnTime pointer" type="button" onClick={() => removeSingle(time, scramble)}>
           <img className="icoBtnTime" src={trash} alt="remove" />
         </button>
       </div>
