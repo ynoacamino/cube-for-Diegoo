@@ -25,9 +25,9 @@ function Times({
           num={times.length - (index)}
           time={single.time}
           scramble={single.scram}
-          DNF={DNF}
-          removeSingle={removeSingle}
-          moreTwo={moreTwo}
+          DNF={(a, b) => DNF(a, b)}
+          removeSingle={(a, b) => removeSingle(a, b)}
+          moreTwo={(a, b) => moreTwo(a, b)}
         />
       ))}
       {times.length === 0 && <span>Aun no hay datos</span>}
