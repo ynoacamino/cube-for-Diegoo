@@ -79,5 +79,35 @@ label {
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 20px
+  gap: 15px
+}
+
+input[type=radio]{
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid rgb(158, 158, 158);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+input[type=radio]:checked{
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid rgb(158, 158, 158);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  position: relative;
+}
+input[type=radio]:checked::after{
+  content: '';
+  height: 15px;
+  width: 15px;
+  background-color: rgb(158, 158, 158);
+  position: absolute;
+  border-radius: 50%;
+  right: 3px;
+  bottom: 3px;
 }
