@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Clock from '../Clock/Clock';
 import Reloj from '../Reloj/Reloj';
 
-function ModuleTime({ end }) {
+function ModuleTime({ end, isLive }) {
   const [time, setTime] = useState(0);
   const [live, _setLive] = useState(false);
   const liveRef = useRef(false);
@@ -18,6 +18,7 @@ function ModuleTime({ end }) {
     } else if (cicle.current !== 0 && live === false) {
       end(time);
     }
+    isLive();
   }, [live]);
 
   useEffect(() => {
