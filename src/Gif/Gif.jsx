@@ -1,6 +1,6 @@
 import React from 'react';
-import one from '../imgs/one.gif';
-import cero from '../imgs/newGif12.gif';
+import cero from '../imgs/gif012.gif';
+import one from '../imgs/newGif12.gif';
 import './Gif.css';
 
 function Cat({ live }) {
@@ -8,13 +8,13 @@ function Cat({ live }) {
     <div>
       <img
         className="imgCat"
-        style={{ display: !live && 'none' }}
+        style={{ display: live && 'none' }}
         src={one}
         alt="catGif"
       />
       <img
         className="imgCat"
-        style={{ display: live && 'none' }}
+        style={{ display: !live && 'none' }}
         src={cero}
         alt="catGif"
       />
