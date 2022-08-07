@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from 'react';
 import Clock from '../Clock/Clock';
 import Reloj from '../Reloj/Reloj';
@@ -50,6 +51,7 @@ function ModuleTime({ end, isLive }) {
     <>
       {!live && <Reloj stop={time} />}
       {live && <Clock men={(mSeg) => handle(mSeg)} />}
+      <span className="instruccionesApp">Presiona spacio</span>
     </>
   );
 }
