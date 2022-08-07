@@ -1,15 +1,13 @@
 import './SingleTime.css';
 import React from 'react';
 import trash from '../../imgs/trash-bin.png';
-import dnf from '../../imgs/DNF.svg';
-import two from '../../imgs/moreTwo.svg';
 
 function SingleTime({
-  num, time, scramble, removeSingle, moreTwo, DNF,
+  num, time, dnfInfo, scramble, removeSingle, moreTwo, DNF, twoSeg,
 }) {
   return (
     <div className="SingleTime">
-      <div className="rigthTime">
+      <div className={`rigthTime ${dnfInfo && 'dnfStyles'}`}>
         <span className="numSingleTime">
           {num}
           :
@@ -24,11 +22,11 @@ function SingleTime({
         <span className="scrambleSingleTime">{scramble}</span>
       </div>
       <div className="leftTime">
-        <button className="btnTime pointer btnMoreTwo" type="button" onClick={() => moreTwo(time, scramble)}>
-          <img className="icoBtnTime" src={two} alt="moreTwo" />
+        <button className={`btnTime pointer btnMoreTwo ${twoSeg && 'btnOn'}`} type="button" onClick={() => moreTwo(time, scramble)}>
+          +2
         </button>
-        <button className="btnTime pointer" type="button" onClick={() => DNF(time, scramble)}>
-          <img className="icoBtnTime" src={dnf} alt="DNF" />
+        <button className={`btnTime pointer ${dnfInfo && 'btnOn'}`} type="button" onClick={() => DNF(time, scramble)}>
+          DNF
         </button>
         <button className="btnTime pointer" type="button" onClick={() => removeSingle(time, scramble)}>
           <img className="icoBtnTime" src={trash} alt="remove" />
