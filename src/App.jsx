@@ -11,6 +11,7 @@ import Scramble from './Scramble/Scramble';
 function App() {
   const [scram, setScram] = useState(desarmador());
   const [times, setTimes] = useState([]);
+  const [moveGif, setMoveGif] = useState(false);
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem('dataUser')) && JSON.parse(localStorage.getItem('dataUser')).length > 0) {
@@ -48,7 +49,6 @@ function App() {
   const moreTwo = (a, b) => {
     const indexTime = times.findIndex((element) => element.scram === b);
     const arrOld = times;
-    // eslint-disable-next-line operator-assignment
     if (arrOld[indexTime].moreTwo) {
       arrOld[indexTime].time -= 200;
     } else {
@@ -58,6 +58,8 @@ function App() {
     setTimes([...arrOld]);
   };
 
+  const liveGif = () => setMoveGif(!moveGif);
+
   useEffect(() => {
     localStorage.setItem('dataUser', JSON.stringify(times));
   }, [times]);
@@ -66,9 +68,9 @@ function App() {
     <>
       <Header />
       <div className="App">
-        <Gif />
+        <Gif live={moveGif} />
         <Scramble scramble={scram} />
-        <ModuleTime end={(time) => end(time)} />
+        <ModuleTime end={(time) => end(time)} isLive={(live) => liveGif(live)} />
         <span className="instruccionesApp">Presiona spacio</span>
         <Times
           times={times}
