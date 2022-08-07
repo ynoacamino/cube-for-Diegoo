@@ -1,6 +1,6 @@
 .Reloj {
   font-family: "Clock";
-  font-size: 14rem;
+  font-size: 10rem;
   color: rgb(71, 71, 71);
   transition: all 300ms;
   display: flex;
