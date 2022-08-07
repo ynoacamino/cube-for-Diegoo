@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import Header from './Header/Header';
 import Gif from './Gif/Gif';
 import ModuleTime from './ModuleTime/ModuleTime';
@@ -64,14 +65,48 @@ function App() {
     localStorage.setItem('dataUser', JSON.stringify(times));
   }, [times]);
 
+  const animBodyTimer = useAnimation();
+
+  useEffect(() => {
+    if (!moveGif) {
+      animBodyTimer.start('start');
+    } else {
+      animBodyTimer.start('end');
+    }
+  }, [moveGif]);
+
+  const variantes = {
+    start: {
+      //      y: -70,
+      scale: [1, 1.3, 1.25],
+      height: 750,
+      transition: {
+        duration: 0.3,
+      },
+    },
+    end: {
+      //      y: 0,
+      scale: [1.3, 1],
+      transition: {
+        duration: 0.2,
+      },
+      height: 440,
+    },
+  };
   return (
     <>
       <Header />
       <div className="App">
-        <Gif live={moveGif} />
-        <Scramble scramble={scram} />
-        <ModuleTime end={(time) => end(time)} isLive={(live) => liveGif(live)} />
-        <span className="instruccionesApp">Presiona spacio</span>
+        <motion.div
+          className="bodyTimer"
+          animate={animBodyTimer}
+          variants={variantes}
+        >
+          <Gif live={moveGif} />
+          <Scramble scramble={scram} />
+          <ModuleTime end={(time) => end(time)} isLive={(live) => liveGif(live)} />
+
+        </motion.div>
         <Times
           times={times}
           reset={reset}
