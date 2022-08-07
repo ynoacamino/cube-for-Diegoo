@@ -15,7 +15,7 @@
 }
 .scrambleSingleTime {
   margin-left: 20px;
-  color: rgb(102, 102, 102);
+  color: rgb(66, 66, 66);
 }
 
 .rigthTime {
@@ -27,7 +27,8 @@
   display: flex;
   gap: 15px;
   align-items: center;
-
+  width: 170px;
+  justify-content: space-between;
 }
 
 .btnTime{
@@ -37,12 +38,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 300ms;
+  transition: background 300ms;
   height: 40px;
+  font-size: 1.03rem;
+  color: rgb(83, 83, 83);
 }
 
 .icoBtnTime {
   width: 30px;
+  filter: invert(0.3);
 }
 
 .btnTime:hover {
@@ -52,4 +56,13 @@
 
 .btnMoreTwo {
   padding-left: 10px;
+}
+
+.dnfStyles { 
+  filter: opacity(0.5);
+}
+
+.btnOn {
+  font-weight:800;
+  color: rgb(105, 0, 0);
 }
