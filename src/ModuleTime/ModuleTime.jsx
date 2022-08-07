@@ -29,9 +29,7 @@ function ModuleTime({ end }) {
       }
     };
     const notScroll = (e) => {
-      console.log('stop112');
       if (e.keyCode === 32 && e.target === document.body) {
-        console.log('stop');
         e.preventDefault();
       }
     };
