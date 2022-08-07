@@ -28,6 +28,8 @@ function Times({
           DNF={(a, b) => DNF(a, b)}
           removeSingle={(a, b) => removeSingle(a, b)}
           moreTwo={(a, b) => moreTwo(a, b)}
+          dnfInfo={single.dnfInfo}
+          twoSeg={single.moreTwo}
         />
       ))}
       {times.length === 0 && <span>Aun no hay datos</span>}
