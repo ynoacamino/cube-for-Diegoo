@@ -9,8 +9,6 @@ import Times from './Times/Times';
 import Scramble from './Scramble/Scramble';
 
 function App() {
-  localStorage.setItem('data', 'dddd');
-
   const [scram, setScram] = useState(desarmador());
   const [times, setTimes] = useState([]);
 
@@ -23,8 +21,9 @@ function App() {
   }, []);
 
   const end = (time) => {
-    console.log(times);
-    setTimes((oldArray) => [{ time, scram }, ...oldArray]);
+    setTimes((oldArray) => [{
+      time, scram, moreTwo: false, dnfInfo: false,
+    }, ...oldArray]);
     setScram(desarmador());
   };
 
@@ -33,29 +32,30 @@ function App() {
   };
 
   const DNF = (a, b) => {
-    console.log('DNf', a, b);
     const indexTime = times.findIndex((element) => element.scram === b);
-    console.log(indexTime);
+    const arrOld = times;
+    arrOld[indexTime].dnfInfo = !(arrOld[indexTime].dnfInfo);
+    setTimes([...arrOld]);
   };
 
   const removeSingle = (a, b) => {
-    console.log('DremoveSingle', a, b);
     const indexTime = times.findIndex((element) => element.scram === b);
-    console.log(indexTime);
     const arrOld = times;
     arrOld.splice(indexTime, 1);
-    console.log('delete', arrOld);
     setTimes([...arrOld]);
   };
 
   const moreTwo = (a, b) => {
-    console.log('moreTwo', a, b);
     const indexTime = times.findIndex((element) => element.scram === b);
     const arrOld = times;
     // eslint-disable-next-line operator-assignment
-    arrOld[indexTime].time = arrOld[indexTime].time + 200;
+    if (arrOld[indexTime].moreTwo) {
+      arrOld[indexTime].time -= 200;
+    } else {
+      arrOld[indexTime].time += 200;
+    }
+    arrOld[indexTime].moreTwo = !arrOld[indexTime].moreTwo;
     setTimes([...arrOld]);
-    console.log(indexTime);
   };
 
   useEffect(() => {
