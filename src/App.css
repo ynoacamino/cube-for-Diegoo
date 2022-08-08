@@ -15,7 +15,7 @@ body {
 .instruccionesApp {
   font-family: 'GoogleSansLigth';
   color: #5f5f5f;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.1rem;
   margin-top: -20px;
 }
@@ -25,4 +25,13 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.Scramble {
+  font-family: 'GoogleSans';
+  font-size: 1.4rem;
+  color: rgb(88, 88, 88);
+  padding: 20px;
+  letter-spacing: 0.2rem;
+  z-index: 44;
 }
