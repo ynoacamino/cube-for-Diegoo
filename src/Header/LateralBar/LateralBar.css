@@ -73,13 +73,15 @@ li {
   font-size: 1.7rem;
   margin-left: 20px;
   gap: 10px;
+  margin-top: 10px;
 }
 
 label {
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 15px
+  gap: 15px;
+  cursor: pointer;
 }
 
 input[type=radio]{
@@ -90,6 +92,7 @@ input[type=radio]{
   border-radius: 50%;
   width: 25px;
   height: 25px;
+  cursor: pointer;
 }
 input[type=radio]:checked{
   -webkit-appearance: none;
