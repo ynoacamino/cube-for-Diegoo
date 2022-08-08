@@ -7,12 +7,15 @@ import Gif from './Gif/Gif';
 import ModuleTime from './ModuleTime/ModuleTime';
 import desarmador from './Scramble/main';
 import Times from './Times/Times';
-import Scramble from './Scramble/Scramble';
+import Average from './Average/Average';
 
 function App() {
   const [scram, setScram] = useState(desarmador());
   const [times, setTimes] = useState([]);
   const [moveGif, setMoveGif] = useState(false);
+  const [statistics, setStatistics] = useState({
+    media: '--', best: '--', count: '--', ao5: '--', ao12: '--',
+  });
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem('dataUser')) && JSON.parse(localStorage.getItem('dataUser')).length > 0) {
@@ -63,21 +66,39 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('dataUser', JSON.stringify(times));
+    const tempArr5 = times.slice(0, 5)
+      .reduce((preObj, currentObj) => currentObj.time + preObj, 0) / 5;
+    const tempArr12 = times.slice(0, 12)
+      .reduce((preObj, currentObj) => currentObj.time + preObj, 0) / 12;
+    const tempMedia = times
+      .reduce((preObj, currentObj) => currentObj.time + preObj, 0) / times.length;
+    const best = times
+      .reduce((preObj, currentObj) => (preObj.time <= currentObj.time
+        ? preObj : currentObj), { time: 999999 }).time;
+    setStatistics({
+      media: Math.round(tempMedia),
+      best,
+      count: times.length,
+      ao5: times.length >= 5 ? Math.round(tempArr5) : '- -',
+      ao12: times.length >= 12 ? Math.round(tempArr12) : '- -',
+    });
   }, [times]);
 
   const animBodyTimer = useAnimation();
+  const animScrmble = useAnimation();
 
   useEffect(() => {
     if (!moveGif) {
       animBodyTimer.start('start');
+      animScrmble.start('min');
     } else {
       animBodyTimer.start('end');
+      animScrmble.start('normal');
     }
   }, [moveGif]);
 
   const variantes = {
     start: {
-      //      y: -70,
       scale: [1, 1.3, 1.25],
       height: 750,
       transition: {
@@ -85,12 +106,20 @@ function App() {
       },
     },
     end: {
-      //      y: 0,
       scale: [1.3, 1],
       transition: {
         duration: 0.2,
       },
       height: 440,
+    },
+    min: {
+      scale: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+    normal: {
+      scale: 1,
     },
   };
   return (
@@ -103,9 +132,14 @@ function App() {
           variants={variantes}
         >
           <Gif live={moveGif} />
-          <Scramble scramble={scram} />
+          <motion.div
+            className="Scramble"
+            animate={animScrmble}
+            variants={variantes}
+          >
+            {scram}
+          </motion.div>
           <ModuleTime end={(time) => end(time)} isLive={(live) => liveGif(live)} />
-
         </motion.div>
         <Times
           times={times}
@@ -114,6 +148,7 @@ function App() {
           moreTwo={(a, b) => moreTwo(a, b)}
           removeSingle={(a, b) => removeSingle(a, b)}
         />
+        <Average statistics={statistics} />
       </div>
     </>
   );
