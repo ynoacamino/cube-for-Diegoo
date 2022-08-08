@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from 'react';
-import Clock from '../Clock/Clock';
-import Reloj from '../Reloj/Reloj';
+import Clock from './Clock/Clock';
+import Reloj from './Reloj/Reloj';
 
 function ModuleTime({ end, isLive }) {
   const [time, setTime] = useState(0);
@@ -24,7 +24,7 @@ function ModuleTime({ end, isLive }) {
 
   useEffect(() => {
     const go = ({ keyCode }) => {
-      if (liveRef.current && keyCode === 32) {
+      if (liveRef.current) {
         setLive(false);
       } else if (!liveRef.current && keyCode === 32) {
         setLive(true);
