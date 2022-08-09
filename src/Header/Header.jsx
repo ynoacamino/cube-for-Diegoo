@@ -4,6 +4,7 @@ import LogoCube from '../imgs/logoCube2.svg';
 import Settings from '../imgs/settings.png';
 import LateralBar from './LateralBar/LateralBar';
 import icoGoogle from '../imgs/google.png';
+import { loginWithGoogle } from '../context/firebaseContext';
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -11,6 +12,10 @@ function Header() {
   const clickOpen = () => {
     setOpen(!open);
     console.log(open);
+  };
+
+  const googleSingIn = async () => {
+    await loginWithGoogle();
   };
 
   return (
@@ -34,6 +39,7 @@ function Header() {
         <button
           className="btnLoginHeader pointer"
           type="button"
+          onClick={googleSingIn}
         >
           <img src={icoGoogle} alt="google" className="icoGoogle" />
           Log in
