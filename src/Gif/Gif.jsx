@@ -1,5 +1,5 @@
 import React from 'react';
-import cero from '../imgs/gif012.gif';
+import cero from '../imgs/newGifEnd.gif';
 import one from '../imgs/newGif12.gif';
 import './Gif.css';
 
