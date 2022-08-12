@@ -60,12 +60,12 @@
   color: white;
   background-color: orange;
   border-radius: 7px;
-  padding: 10px 20px;
   font-size: 1.2rem;
   display: flex;
   transition: all 100ms;
   align-items: center;
   gap: 10px;
+  padding: 10px 20px;
 }
 
 .btnLoginHeader:hover {
@@ -91,4 +91,19 @@
   width: 35px;
   filter:grayscale(1);
   filter:brightness(6);
+}
+.userPhoto {
+  width: 50px;
+  border-radius: 50%;
+  border: 0;
+  margin: 3px;
+}
+.userBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+  color: rgb(107, 107, 107);
+  font-size: 1.2rem;
+ 
 }
