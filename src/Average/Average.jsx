@@ -12,7 +12,10 @@ function Average({
       </div>
       <div className="boxAverage">
         <span className="spanNameAverage">Mejor:</span>
-        <span className="spanNumAverage">{statistics.best === 999999 ? '- -' : statistics.best / 100}</span>
+        <span className="spanNumAverage">
+          {statistics.best === 999999 && '- -' }
+          {statistics.best !== 999999 && statistics.best / 100}
+        </span>
       </div>
       <div className="boxAverage">
         <span className="spanNameAverage">Ao5:</span>
