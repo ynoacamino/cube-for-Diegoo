@@ -114,3 +114,18 @@ input[type=radio]:checked::after{
   right: 3px;
   bottom: 3px;
 }
+
+.btnLogOut {
+  border: 0;
+  font-family: "GoogleSansBold";
+  color: white;
+  background-color: orange;
+  border-radius: 7px;
+  font-size: 1.2rem;
+  display: flex;
+  transition: all 100ms;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  margin: 40px auto;
+}
