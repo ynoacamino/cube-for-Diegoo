@@ -4,18 +4,20 @@ import LogoCube from '../imgs/logoCube2.svg';
 import Settings from '../imgs/settings.png';
 import LateralBar from './LateralBar/LateralBar';
 import icoGoogle from '../imgs/google.png';
-import { loginWithGoogle } from '../context/firebaseContext';
+import { useAuth } from '../context/firebaseContext';
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const {
+    loginWithGoogle, user,
+  } = useAuth();
 
   const clickOpen = () => {
     setOpen(!open);
-    console.log(open);
   };
 
   const googleSingIn = async () => {
-    await loginWithGoogle();
+    loginWithGoogle();
   };
 
   return (
@@ -25,6 +27,29 @@ function Header() {
         <span className="titleHeader">Chronomber Cube</span>
       </div>
       <div className="leftHeader">
+        {!user && (
+        <button
+          className="btnLoginHeader pointer"
+          type="button"
+          onClick={googleSingIn}
+        >
+          <img src={icoGoogle} alt="google" className="icoGoogle" />
+          Log in
+        </button>
+        )}
+        {user && (
+          <div
+            className="userBox pointer"
+          >
+            <img
+              referrerPolicy="no-referrer"
+              src={user.reloadUserInfo.photoUrl}
+              alt="userPhoto"
+              className="userPhoto"
+            />
+            {user.displayName}
+          </div>
+        )}
         <button
           className="btnSettingsHeader pointer"
           type="button"
@@ -35,15 +60,6 @@ function Header() {
             alt="icoSettings"
             className="icoSettingsHeader"
           />
-        </button>
-        <button
-          className="btnLoginHeader pointer"
-          type="button"
-          onClick={googleSingIn}
-        >
-          <img src={icoGoogle} alt="google" className="icoGoogle" />
-          Log in
-
         </button>
       </div>
       <div aria-hidden="true" onClick={clickOpen} className={`boxNormalModal ${open && 'boxShadowModal'}`} />
