@@ -8,6 +8,7 @@ import ModuleTime from './ModuleTime/ModuleTime';
 import desarmador from './Scramble/main';
 import Times from './Times/Times';
 import Average from './Average/Average';
+import { AuthProvider } from './context/firebaseContext';
 
 function App() {
   const [scram, setScram] = useState(desarmador());
@@ -100,7 +101,7 @@ function App() {
   const variantes = {
     start: {
       scale: [1, 1.3, 1.25],
-      height: 750,
+      height: window.innerHeight - 260,
       transition: {
         duration: 0.3,
       },
@@ -123,7 +124,7 @@ function App() {
     },
   };
   return (
-    <>
+    <AuthProvider>
       <Header />
       <div className="App">
         <motion.div
@@ -150,7 +151,7 @@ function App() {
         />
         <Average statistics={statistics} />
       </div>
-    </>
+    </AuthProvider>
   );
 }
 
