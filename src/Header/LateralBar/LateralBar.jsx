@@ -2,8 +2,12 @@
 import React from 'react';
 import './LateralBar.css';
 import closeIco from '../../imgs/close.png';
+import { useAuth } from '../../context/firebaseContext';
 
 function LateralBar({ open, func }) {
+  const {
+    user, logout,
+  } = useAuth();
   return (
     <div className={`NavMobile ${open && 'NavMobileView'}`}>
       <div className="boxSettings">
@@ -38,6 +42,16 @@ function LateralBar({ open, func }) {
             4x4x4 cube
           </label>
         </div>
+        <hr />
+        {user && (
+        <button
+          className="btnLogOut pointer"
+          type="button"
+          onClick={() => { logout(); func(); }}
+        >
+          Log Out
+        </button>
+        )}
       </div>
       <button
         type="button"
