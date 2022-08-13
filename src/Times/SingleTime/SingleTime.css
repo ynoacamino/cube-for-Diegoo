@@ -29,6 +29,7 @@
   align-items: center;
   width: 170px;
   justify-content: space-between;
+  margin-right: 40px;
 }
 
 .btnTime{
@@ -39,7 +40,8 @@
   justify-content: center;
   align-items: center;
   transition: background 300ms;
-  height: 40px;
+  height: 30px;
+  margin: 7px;
   font-size: 1.03rem;
   color: rgb(83, 83, 83);
 }
