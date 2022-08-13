@@ -16,9 +16,9 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1.5rem;
-  font-weight: bold;
-  color: #6d6d6d;
+  color: #303030;
   text-decoration: underline;
+  padding: 0 2%;
 }
 
 .icoBtnRemove{
