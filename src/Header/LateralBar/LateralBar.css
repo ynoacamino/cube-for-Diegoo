@@ -12,12 +12,12 @@
   position: absolute;
   background-color: white;
   box-shadow: 0 0 8px rgb(0 0 0 / 10%);
-  height: 100vh;
-  top: 0;
+  height: 90vh;
+  top: calc(50% );
   margin: 0;
-  right: 0;
+  right: 30px;
   width: 0;
-  transition: all 200ms;
+  transition: all 150ms;
   font-size: 2rem;
   padding-left: 0;
   justify-content: center;
@@ -25,10 +25,11 @@
   gap: 30px;
   overflow: hidden;
   color: rgb(66, 66, 66);
+  border-radius: 30px;
 }
 
 .NavMobileView {
-  width: min(400px, 100vw);
+  width: min(370px, 100vw);
   box-shadow: 0 2px 6px rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0;
 }
   
@@ -37,7 +38,7 @@
   border: 0;
   border-radius: 50%;
   transition: all 150ms;
-  padding: 10px;
+  padding: 5px;
   position: absolute;
   top: 40px;
   right: 40px
@@ -62,7 +63,7 @@ li {
 
 .boxSettings {
   height: 70%;
-
+  overflow: hidden;
   width: 85%;
 }
 
@@ -74,6 +75,7 @@ li {
   margin-left: 20px;
   gap: 10px;
   margin-top: 10px;
+  overflow: hidden;
 }
 
 label {
