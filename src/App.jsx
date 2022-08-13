@@ -8,7 +8,7 @@ import ModuleTime from './ModuleTime/ModuleTime';
 import desarmador from './Scramble/main';
 import Times from './Times/Times';
 import Average from './Average/Average';
-import { AuthProvider } from './context/firebaseContext';
+import { useAuth } from './context/firebaseContext';
 
 function App() {
   const [scram, setScram] = useState(desarmador());
@@ -17,6 +17,7 @@ function App() {
   const [statistics, setStatistics] = useState({
     media: '--', best: '--', count: '--', ao5: '--', ao12: '--',
   });
+  const { saveTimes, user, getTimes } = useAuth();
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem('dataUser')) && JSON.parse(localStorage.getItem('dataUser')).length > 0) {
@@ -24,6 +25,15 @@ function App() {
     } else {
       localStorage.setItem('dataUser', times);
     }
+    async function mixInfo() {
+      if (user) {
+        const timesUserGoogle = await getTimes(user.uid);
+        console.log(timesUserGoogle.data(), 'a');
+        const mixTimes = [...timesUserGoogle.data(), ...times];
+        setTimes(mixTimes);
+      }
+    }
+    mixInfo();
   }, []);
 
   const end = (time) => {
@@ -83,6 +93,7 @@ function App() {
       ao5: times.length >= 5 ? Math.round(tempArr5) : '- -',
       ao12: times.length >= 12 ? Math.round(tempArr12) : '- -',
     });
+    if (user) saveTimes(times, user.uid);
   }, [times]);
 
   const animBodyTimer = useAnimation();
@@ -124,7 +135,7 @@ function App() {
     },
   };
   return (
-    <AuthProvider>
+    <>
       <Header />
       <div className="App">
         <motion.div
@@ -151,7 +162,7 @@ function App() {
         />
         <Average statistics={statistics} />
       </div>
-    </AuthProvider>
+    </>
   );
 }
 
