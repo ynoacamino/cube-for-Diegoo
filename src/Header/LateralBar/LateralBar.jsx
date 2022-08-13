@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import './LateralBar.css';
-import closeIco from '../../imgs/close.png';
+import closeIco from '../../imgs/close.svg';
 import { useAuth } from '../../context/firebaseContext';
 
 function LateralBar({ open, func }) {
