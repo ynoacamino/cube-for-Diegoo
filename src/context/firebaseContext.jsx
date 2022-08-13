@@ -8,7 +8,10 @@ import {
 import {
   React, createContext, useContext, useEffect, useState,
 } from 'react';
-import { auth } from '../firebaseConfig';
+import {
+  getDoc, doc, setDoc,
+} from 'firebase/firestore';
+import { db, auth } from '../firebaseConfig';
 
 const authContext = createContext();
 
@@ -29,11 +32,13 @@ export function AuthProvider({ children }) {
 
   const logout = () => signOut(auth);
 
+  const saveTimes = (times, uid) => setDoc(doc(db, 'times', uid), { times, uid });
+  const getTimes = (uid) => getDoc(doc(db, 'times', uid));
+
   useEffect(() => {
     const unsubuscribre = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      console.log(currentUser);
     });
     return () => unsubuscribre();
   }, []);
@@ -44,6 +49,8 @@ export function AuthProvider({ children }) {
         loading,
         loginWithGoogle,
         logout,
+        saveTimes,
+        getTimes,
       }}
     >
       {children}
