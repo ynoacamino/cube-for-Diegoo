@@ -1,6 +1,6 @@
 import './SingleTime.css';
 import React from 'react';
-import trash from '../../imgs/trash-bin.png';
+import trash from '../../imgs/deleteLigth.svg';
 
 function SingleTime({
   num, time, dnfInfo, scramble, removeSingle, moreTwo, DNF, twoSeg,
