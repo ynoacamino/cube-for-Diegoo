@@ -20,10 +20,66 @@
   font-weight: normal;
 }
 
+:root {
+  --background-body-light: #f1f1f1;
+  --background-box-light: white;
+  --boxShadow-box-light: #dadce0;
+  --fontColor-paste-ligth: rgb(67, 67, 67);
+  --fontColor-solid-ligth: black;
+  --fontColor-select-ligth: rgb(105, 0, 0);
+  
+  /* Colors for theme darck */
+  --background-body-darck: #202124;
+  --background-box-darck: #303134;
+  --boxShadow-box-darck: #dadce0;
+  --fontColor-paste-darck: #9aa0a6;
+  --fontColor-solid-darck: #e8eaed;
+  --fontColor-select-darck: #8ab4f8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-body: var(--background-body-darck);
+    --background-box: var(--background-box-darck);
+    --boxShadow-box: var(--boxShadow-box-darck);
+    --fontColor-paste: var(--fontColor-paste-darck);
+    --fontColor-solid: var(--fontColor-solid-darck);
+    --fontColor-select: var(--fontColor-select-darck);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-body: var(--background-body-light);
+    --background-box: var(--background-box-light);
+    --boxShadow-box: var(--boxShadow-box-light);
+    --fontColor-paste: var(--fontColor-paste-light);
+    --fontColor-solid: var(--fontColor-solid-light);
+    --fontColor-select: var(--fontColor-select-light);
+  }
+}
 
 body {
   padding: 0;
   margin: 0;
+}
+
+body[data-theme='dark'] {
+  --background-body: var(--background-body-darck);
+  --background-box: var(--background-box-darck);
+  --boxShadow-box: var(--boxShadow-box-darck);
+  --fontColor-paste: var(--fontColor-paste-darck);
+  --fontColor-solid: var(--fontColor-solid-darck);
+  --fontColor-select: var(--fontColor-select-darck);
+}
+
+body[data-theme='light'] {
+  --background-body: var(--background-body-light);
+  --background-box: var(--background-box-light);
+  --boxShadow-box: var(--boxShadow-box-light);
+  --fontColor-paste: var(--fontColor-paste-light);
+  --fontColor-solid: var(--fontColor-solid-light);
+  --fontColor-select: var(--fontColor-select-light);
 }
 
 .pointer:hover {
