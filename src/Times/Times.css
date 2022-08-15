@@ -1,5 +1,5 @@
 .Times {
-  background-color: white;
+  background-color: var(--background-box);
   width: min(1000px, 90vw);
   margin: 150px 0 0 0;
   padding: 20px;
@@ -7,7 +7,7 @@
   flex-direction: column;
   font-family: 'GoogleSans';
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 12%), inset 0 -1px 0 0 var(--boxShadow-box);
   min-height: 150px;
 }
 
@@ -16,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1.5rem;
-  color: #303030;
+  color: var( --fontColor-solid);
   text-decoration: underline;
   padding: 0 2%;
 }
