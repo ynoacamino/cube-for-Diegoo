@@ -4,7 +4,7 @@ import './LateralBar.css';
 import closeIco from '../../imgs/close.svg';
 import { useAuth } from '../../context/firebaseContext';
 
-function LateralBar({ open, func }) {
+function LateralBar({ open, func, changeTheme }) {
   const {
     user, logout,
   } = useAuth();
@@ -14,13 +14,18 @@ function LateralBar({ open, func }) {
         <span>Theme:</span>
         <div className="optionsTheme">
           <label htmlFor="white">
-            <input type="radio" name="theme" id="white" defaultChecked />
+            <input type="radio" name="theme" id="white" onInput={() => changeTheme('light')} />
             Light theme
           </label>
 
           <label htmlFor="dark">
-            <input type="radio" name="theme" id="dark" />
+            <input type="radio" name="theme" id="dark" onInput={() => changeTheme('dark')} />
             Dark theme
+          </label>
+
+          <label htmlFor="default">
+            <input type="radio" name="theme" id="default" onInput={() => changeTheme('')} defaultChecked />
+            Device default
           </label>
         </div>
         <hr />
