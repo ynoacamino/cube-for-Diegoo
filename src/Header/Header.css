@@ -1,8 +1,8 @@
 .Header {
   display: flex;
   justify-content: space-between;
-  background-color: white;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0;
+  background-color: var(--background-box);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 12%), inset 0 -1px 0 0 var(--boxShadow-box);
   font-family: "GoogleSans";
   padding: 0 max(30px, 4%);
   position: sticky;
@@ -25,7 +25,7 @@
 
 .titleHeader {
   font-size: 1.6rem;
-  color: #5f6368;
+  color: var(--fontColor-solid);
 }
 
 .leftHeader {
@@ -95,7 +95,7 @@
 .userPhoto {
   width: 50px;
   border-radius: 50%;
-  border: 0;
+  border: 2px solid rgb(189, 189, 189);
   margin: 3px;
 }
 .userBox {
@@ -103,7 +103,7 @@
   justify-content: space-around;
   align-items: center;
   gap: 15px;
-  color: rgb(107, 107, 107);
+  color: var(--fontColor-solid);
   font-size: 1.2rem;
  
 }
