@@ -24,17 +24,19 @@
   --background-body-light: #f1f1f1;
   --background-box-light: white;
   --boxShadow-box-light: #dadce0;
-  --fontColor-paste-ligth: rgb(67, 67, 67);
-  --fontColor-solid-ligth: black;
-  --fontColor-select-ligth: rgb(105, 0, 0);
+  --fontColor-paste-light: #434343;
+  --fontColor-solid-light: #353535;
+  --fontColor-select-light: #690000;
+  --hoverColor-ligth:#F0F0F0;
   
   /* Colors for theme darck */
   --background-body-darck: #202124;
   --background-box-darck: #303134;
-  --boxShadow-box-darck: #dadce0;
-  --fontColor-paste-darck: #9aa0a6;
-  --fontColor-solid-darck: #e8eaed;
+  --boxShadow-box-darck: #191a1b;
+  --fontColor-paste-darck: #babfc4;
+  --fontColor-solid-darck: #cacaca;
   --fontColor-select-darck: #8ab4f8;
+  --hoverColor-darck: #383838;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,6 +47,7 @@
     --fontColor-paste: var(--fontColor-paste-darck);
     --fontColor-solid: var(--fontColor-solid-darck);
     --fontColor-select: var(--fontColor-select-darck);
+    --hoverColor: var(--hoverColor-darck);
   }
 }
 
@@ -56,7 +59,13 @@
     --fontColor-paste: var(--fontColor-paste-light);
     --fontColor-solid: var(--fontColor-solid-light);
     --fontColor-select: var(--fontColor-select-light);
+    --hoverColor: var(--hoverColor-ligth);
   }
+}
+
+* {
+  transition: color 300ms;
+  transition: background 120ms;
 }
 
 body {
@@ -64,22 +73,24 @@ body {
   margin: 0;
 }
 
-body[data-theme='dark'] {
+#body[data-theme='dark'] {
   --background-body: var(--background-body-darck);
   --background-box: var(--background-box-darck);
   --boxShadow-box: var(--boxShadow-box-darck);
   --fontColor-paste: var(--fontColor-paste-darck);
   --fontColor-solid: var(--fontColor-solid-darck);
   --fontColor-select: var(--fontColor-select-darck);
+  --hoverColor: var(--hoverColor-darck);
 }
 
-body[data-theme='light'] {
+#body[data-theme='light'] {
   --background-body: var(--background-body-light);
   --background-box: var(--background-box-light);
   --boxShadow-box: var(--boxShadow-box-light);
   --fontColor-paste: var(--fontColor-paste-light);
   --fontColor-solid: var(--fontColor-solid-light);
   --fontColor-select: var(--fontColor-select-light);
+  --hoverColor: var(--hoverColor-ligth);
 }
 
 .pointer:hover {
