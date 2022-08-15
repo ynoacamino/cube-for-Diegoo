@@ -17,7 +17,13 @@ function App() {
   const [statistics, setStatistics] = useState({
     media: '--', best: '--', count: '--', ao5: '--', ao12: '--',
   });
+  const [theme, setTheme] = useState('');
   const { saveTimes, user, getTimes } = useAuth();
+
+  const changeTheme = (newTheme) => {
+    console.log(newTheme);
+    setTheme(newTheme);
+  };
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem('dataUser')) && JSON.parse(localStorage.getItem('dataUser')).length > 0) {
@@ -135,8 +141,8 @@ function App() {
     },
   };
   return (
-    <>
-      <Header />
+    <div id="body" data-theme={theme}>
+      <Header changeTheme={(newTheme) => changeTheme(newTheme)} />
       <div className="App">
         <motion.div
           className="bodyTimer"
@@ -162,7 +168,7 @@ function App() {
         />
         <Average statistics={statistics} />
       </div>
-    </>
+    </div>
   );
 }
 
