@@ -6,7 +6,7 @@ import LateralBar from './LateralBar/LateralBar';
 import icoGoogle from '../imgs/google.png';
 import { useAuth } from '../context/firebaseContext';
 
-function Header() {
+function Header({ changeTheme }) {
   const [open, setOpen] = useState(false);
   const {
     loginWithGoogle, user,
@@ -63,7 +63,7 @@ function Header() {
         </button>
       </div>
       <div aria-hidden="true" onClick={clickOpen} className={`boxNormalModal ${open && 'boxShadowModal'}`} />
-      <LateralBar open={open} func={clickOpen} />
+      <LateralBar open={open} func={clickOpen} changeTheme={(newTheme) => changeTheme(newTheme)} />
     </div>
   );
 }
