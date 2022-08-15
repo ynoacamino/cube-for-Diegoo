@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  background-color: white;
+  background-color: var(--background-box);
   box-shadow: 0 0 8px rgb(0 0 0 / 10%);
   height: 90vh;
   top: calc(50% );
@@ -24,13 +24,13 @@
   align-items: center;
   gap: 30px;
   overflow: hidden;
-  color: rgb(66, 66, 66);
+  color: var(--fontColor-solid);
   border-radius: 30px;
 }
 
 .NavMobileView {
   width: min(370px, 100vw);
-  box-shadow: 0 2px 6px rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 12%), inset 0 -1px 0 0 var(--boxShadow-box);
 }
   
 .btnExit {
@@ -38,19 +38,22 @@
   border: 0;
   border-radius: 50%;
   transition: all 150ms;
-  padding: 5px;
   position: absolute;
   top: 40px;
-  right: 40px
+  right: 40px;
+  padding: 0;
+  height: 42px;
+  width: 42px;
 }
 
 .btnExit:hover {
-  background-color: rgb(245, 245, 245);
+  background-color: var(--hoverColor);
 }
 
 .imgCloseIco {
   transition: filter 150ms;
   width: 32px;
+  margin: 5px ;
 }
 
 .imgCloseIco:hover {
@@ -71,9 +74,9 @@ li {
   display: flex;
   flex-direction: column;
   font-family: 'GoogleSansLigth';
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   margin-left: 20px;
-  gap: 10px;
+  gap: 15px;
   margin-top: 10px;
   overflow: hidden;
 }
