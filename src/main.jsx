@@ -7,6 +7,5 @@ import { AuthProvider } from './context/firebaseContext';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <AuthProvider>
     <App />
-    ,
   </AuthProvider>,
 );
