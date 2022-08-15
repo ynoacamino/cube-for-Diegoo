@@ -1,7 +1,7 @@
 body {
   display: flex;
   flex-direction: column;
-  background-color: #f1f1f1;
+  background-color: var(--background-body);
 }
 .App {
   display: flex;
@@ -14,7 +14,7 @@ body {
 
 .instruccionesApp {
   font-family: 'GoogleSansLigth';
-  color: #5f5f5f;
+  color: var(--fontColor-paste);
   font-size: 0.9rem;
   letter-spacing: 0.1rem;
   margin-top: -20px;
@@ -30,8 +30,13 @@ body {
 .Scramble {
   font-family: 'GoogleSans';
   font-size: 1.4rem;
-  color: rgb(88, 88, 88);
+  color: var(--fontColor-paste);
   padding: 20px;
   letter-spacing: 0.2rem;
   z-index: 44;
+}
+
+
+#body {
+  background-color: var(--background-body);
 }
