@@ -1,4 +1,4 @@
-@font-face{
+/*@font-face{
   font-family: "GoogleSans";
   src: url("/src/fonts/ProductSans-Regular.ttf");
 }
@@ -11,7 +11,8 @@
 @font-face {
   font-family: "GoogleSansLigth";
   src: url("/src/fonts/ProductSans-Light.ttf");
-}
+}*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 @font-face {
   font-family: 'Clock';
