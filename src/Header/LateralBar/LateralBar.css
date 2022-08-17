@@ -73,7 +73,7 @@ li {
 .optionsTheme, .optionsCube{
   display: flex;
   flex-direction: column;
-  font-family: 'GoogleSansLigth';
+  font-family: 'Poppins', sans-serif;
   font-size: 1.4rem;
   margin-left: 20px;
   gap: 15px;
@@ -122,7 +122,7 @@ input[type=radio]:checked::after{
 
 .btnLogOut {
   border: 0;
-  font-family: "GoogleSansBold";
+  font-family: 'Poppins', sans-serif;
   color: white;
   background-color: orange;
   border-radius: 7px;
@@ -133,4 +133,5 @@ input[type=radio]:checked::after{
   gap: 10px;
   padding: 10px 20px;
   margin: 40px auto;
+  font-weight: bold;
 }
