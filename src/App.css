@@ -13,7 +13,7 @@ body {
 }
 
 .instruccionesApp {
-  font-family: 'GoogleSansLigth';
+  font-family: 'Poppins', sans-serif; /* thin */
   color: var(--fontColor-paste);
   font-size: 0.9rem;
   letter-spacing: 0.1rem;
@@ -28,7 +28,7 @@ body {
 }
 
 .Scramble {
-  font-family: 'GoogleSans';
+  font-family: 'Poppins', sans-serif;
   font-size: 1.4rem;
   color: var(--fontColor-paste);
   padding: 20px;
