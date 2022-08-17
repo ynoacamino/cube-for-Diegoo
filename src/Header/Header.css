@@ -3,7 +3,7 @@
   justify-content: space-between;
   background-color: var(--background-box);
   box-shadow: 0 2px 6px rgb(0 0 0 / 12%), inset 0 -1px 0 0 var(--boxShadow-box);
-  font-family: "GoogleSans";
+  font-family: 'Poppins', sans-serif;
   padding: 0 max(30px, 4%);
   position: sticky;
   top: 0;
@@ -56,7 +56,7 @@
 
 .btnLoginHeader {
   border: 0;
-  font-family: "GoogleSansBold";
+  font-family: 'Poppins', sans-serif;
   color: white;
   background-color: orange;
   border-radius: 7px;
@@ -66,6 +66,7 @@
   align-items: center;
   gap: 10px;
   padding: 10px 20px;
+  font-weight: bold;
 }
 
 .btnLoginHeader:hover {
