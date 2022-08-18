@@ -21,7 +21,6 @@ function App() {
   const { saveTimes, user, getTimes } = useAuth();
 
   const changeTheme = (newTheme) => {
-    console.log(newTheme);
     setTheme(newTheme);
   };
 
@@ -34,7 +33,6 @@ function App() {
     async function mixInfo() {
       if (user) {
         const timesUserGoogle = await getTimes(user.uid);
-        console.log(timesUserGoogle.data(), 'a');
         const mixTimes = [...timesUserGoogle.data(), ...times];
         setTimes(mixTimes);
       }
