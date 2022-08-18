@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import './ModuleTime.css';
 import React, { useEffect, useRef, useState } from 'react';
 import Clock from './Clock/Clock';
 import Reloj from './Reloj/Reloj';
@@ -21,6 +22,14 @@ function ModuleTime({ end, isLive }) {
     }
     isLive();
   }, [live]);
+
+  const go2 = ({ keyCode }) => {
+    if (liveRef.current) {
+      setLive(false);
+    } else if (!liveRef.current && keyCode === 32) {
+      setLive(true);
+    }
+  };
 
   useEffect(() => {
     const go = ({ keyCode }) => {
@@ -48,11 +57,14 @@ function ModuleTime({ end, isLive }) {
   };
 
   return (
-    <>
+    <div
+      className="ModuleTime"
+      onTouchEnd={() => go2({ keyCode: 32 })}
+    >
       {!live && <Reloj stop={time} />}
       {live && <Clock men={(mSeg) => handle(mSeg)} />}
       <span className="instruccionesApp">Presiona spacio</span>
-    </>
+    </div>
   );
 }
 
