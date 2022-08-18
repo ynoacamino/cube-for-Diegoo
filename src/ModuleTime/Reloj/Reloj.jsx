@@ -17,7 +17,11 @@ function Reloj({ stop }) {
     };
   }, []);
   return (
-    <span className={`Reloj ${press}`}>
+    <span
+      className={`Reloj ${press}`}
+      onTouchStart={() => colorDown(32)}
+      onTouchEnd={() => colorUp(32)}
+    >
       {Math.floor(stop / 100) > 9 ? Math.floor(stop / 100) : `0${Math.floor(stop / 100)}` }
       .
       {stop % 100 > 9 ? stop % 100 : `0${stop % 100}`}
