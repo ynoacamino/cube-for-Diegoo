@@ -22,3 +22,12 @@
   justify-content: space-between;
   width: 80%;
 }
+@media (max-width: 1400px) {
+  .Average {
+    margin-top: 80px;
+    position:static;
+    width: 75vw;
+    padding: 10px;
+    max-width: 400px;
+  }
+}
