@@ -7,9 +7,9 @@ body {
   display: flex;
   margin: auto;
   flex-direction: column;
-  width: min(1200px, 90vw);
-  padding: 30px;
+  width: min(1200px, 80vw);
   align-items: center;
+
 }
 
 .instruccionesApp {
@@ -39,4 +39,17 @@ body {
 
 #body {
   background-color: var(--background-body);
+}
+
+@media (max-width: 1200px){
+  .instruccionesApp {
+    font-size: 0.75rem;
+    margin-top: -10px;
+  }
+  .Scramble {
+    font-size: 1.1rem;
+    letter-spacing: 0.15rem;
+    text-align: center;
+    padding: 20px 0;
+  }
 }
