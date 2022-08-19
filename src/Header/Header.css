@@ -106,5 +106,38 @@
   gap: 15px;
   color: var(--fontColor-solid);
   font-size: 1.2rem;
- 
+}
+@media (max-width: 900px) {
+  .titleHeader {
+    font-size: 1rem;
+    max-width: 100px;
+    line-height: 1.2rem;
+  }
+  .logoHeader {
+    width: 36px;
+  }
+  .Header {
+    padding: 2px 8px;
+  }
+  .btnLoginHeader {
+    padding: 5px;
+  }
+  .loginBtn {
+    display: none;
+  }
+  .icoGoogle {
+    width: 30px;
+  }
+  .icoSettingsHeader {
+    width: 27px;
+  }
+  .leftHeader {
+    gap: 10px;
+  }
+  .userNameHeader {
+    display: none;
+  }
+  .userPhoto{
+    width: 40px;
+  }
 }
