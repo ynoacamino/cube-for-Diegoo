@@ -125,7 +125,7 @@ function App() {
   const variantes = {
     start: {
       scale: [1, 1.3, 1.25],
-      height: window.innerHeight - 260,
+      height: window.innerHeight > 800 ? window.innerHeight - 260 : window.innerHeight * (7.5 / 10),
       transition: {
         duration: 0.3,
       },
