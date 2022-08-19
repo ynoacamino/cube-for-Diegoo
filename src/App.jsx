@@ -18,7 +18,9 @@ function App() {
     media: '--', best: '--', count: '--', ao5: '--', ao12: '--',
   });
   const [theme, setTheme] = useState('');
-  const { saveTimes, user, getTimes } = useAuth();
+  const {
+    saveTimes, user, getTimes, loading,
+  } = useAuth();
 
   const changeTheme = (newTheme) => {
     setTheme(newTheme);
@@ -35,15 +37,22 @@ function App() {
     } else {
       localStorage.setItem('themeUser', theme);
     }
-    async function mixInfo() {
-      if (await user) {
-        const timesUserGoogle = await getTimes(user.uid);
-        const mixTimes = [...timesUserGoogle.data(), ...times];
-        setTimes(mixTimes);
-      }
-    }
-    mixInfo();
   }, []);
+
+  useEffect(() => {
+    const asincrono = async () => {
+      if (!loading) {
+        const timesUserGoogle = await getTimes(user.uid);
+
+        if (timesUserGoogle.data().times === 0) {
+          saveTimes(times, user.uid);
+        } else {
+          setTimes(timesUserGoogle.data().times);
+        }
+      }
+    };
+    asincrono();
+  }, [loading]);
 
   const end = (time) => {
     setTimes((oldArray) => [{
