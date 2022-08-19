@@ -4,7 +4,9 @@ import './LateralBar.css';
 import closeIco from '../../imgs/close.svg';
 import { useAuth } from '../../context/firebaseContext';
 
-function LateralBar({ open, func, changeTheme }) {
+function LateralBar({
+  open, func, changeTheme, theme,
+}) {
   const {
     user, logout,
   } = useAuth();
@@ -14,17 +16,20 @@ function LateralBar({ open, func, changeTheme }) {
         <span>Theme:</span>
         <div className="optionsTheme">
           <label htmlFor="white">
-            <input type="radio" name="theme" id="white" onInput={() => changeTheme('light')} />
+            {theme !== 'light' && <input type="radio" name="theme" id="white" onInput={() => changeTheme('light')} />}
+            {theme === 'light' && <input type="radio" name="theme" id="white" onInput={() => changeTheme('light')} defaultChecked />}
             Light theme
           </label>
 
           <label htmlFor="dark">
-            <input type="radio" name="theme" id="dark" onInput={() => changeTheme('dark')} />
+            {theme === 'dark' && <input type="radio" name="theme" id="dark" onInput={() => changeTheme('dark')} defaultChecked />}
+            {theme !== 'dark' && <input type="radio" name="theme" id="dark" onInput={() => changeTheme('dark')} />}
             Dark theme
           </label>
 
           <label htmlFor="default">
-            <input type="radio" name="theme" id="default" onInput={() => changeTheme('')} defaultChecked />
+            {theme === 'default' && <input type="radio" name="theme" id="default" onInput={() => changeTheme('default')} defaultChecked />}
+            {theme !== 'default' && <input type="radio" name="theme" id="default" onInput={() => changeTheme('default')} />}
             Device default
           </label>
         </div>
