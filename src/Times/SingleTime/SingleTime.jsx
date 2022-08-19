@@ -28,7 +28,7 @@ function SingleTime({
         <button className={`btnTime pointer ${dnfInfo && 'btnOn'}`} type="button" onClick={() => DNF(time, scramble)}>
           DNF
         </button>
-        <button className="btnTime pointer" type="button" onClick={() => removeSingle(time, scramble)}>
+        <button className="btnTime pointer trashBtn" type="button" onClick={() => removeSingle(time, scramble)}>
           <img className="icoBtnTime" src={trash} alt="remove" />
         </button>
       </div>
