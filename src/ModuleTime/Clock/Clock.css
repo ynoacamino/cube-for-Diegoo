@@ -11,3 +11,12 @@
   width: 150px;
   justify-content: space-between;
 }
+
+@media (max-width: 1200px) {
+  .Clock {
+    font-size: 6rem;
+  }
+  .partClock {
+    width: 100px; 
+  }
+}
