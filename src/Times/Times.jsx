@@ -32,7 +32,7 @@ function Times({
           twoSeg={single.moreTwo}
         />
       ))}
-      {times.length === 0 && <span>Aun no hay datos</span>}
+      {times.length === 0 && <span className="noHayDatos">Aun no hay datos</span>}
     </div>
   );
 }
