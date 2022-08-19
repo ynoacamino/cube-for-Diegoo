@@ -9,3 +9,9 @@
 .pressReloj {
   color: #e90000;;
 }
+
+@media (max-width: 1200px) {
+  .Reloj {
+    font-size: 6rem;
+  }
+}
