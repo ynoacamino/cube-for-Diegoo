@@ -4,3 +4,11 @@
   height: 300px;
   margin-top: -20px;
 }
+
+@media (max-width: 1200px) {
+  .imgCat {
+    width: 70vw;
+    max-height: 600px;
+    max-width: 400px;
+  }
+}
