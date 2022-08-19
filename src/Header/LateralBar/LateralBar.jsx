@@ -29,7 +29,8 @@ function LateralBar({
 
           <label htmlFor="default">
             {theme === 'default' && <input type="radio" name="theme" id="default" onInput={() => changeTheme('default')} defaultChecked />}
-            {theme !== 'default' && <input type="radio" name="theme" id="default" onInput={() => changeTheme('default')} />}
+            {theme === '' && <input type="radio" name="theme" id="default" onInput={() => changeTheme('default')} defaultChecked />}
+            {theme !== 'default' && theme !== '' && <input type="radio" name="theme" id="default" onInput={() => changeTheme('default')} />}
             Device default
           </label>
         </div>
