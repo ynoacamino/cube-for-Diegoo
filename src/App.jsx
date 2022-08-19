@@ -30,8 +30,13 @@ function App() {
     } else {
       localStorage.setItem('dataUser', times);
     }
+    if (localStorage.getItem('themeUser') && localStorage.getItem('themeUser').length > 0) {
+      setTheme(localStorage.getItem('themeUser'));
+    } else {
+      localStorage.setItem('themeUser', theme);
+    }
     async function mixInfo() {
-      if (user) {
+      if (await user) {
         const timesUserGoogle = await getTimes(user.uid);
         const mixTimes = [...timesUserGoogle.data(), ...times];
         setTimes(mixTimes);
@@ -100,6 +105,10 @@ function App() {
     if (user) saveTimes(times, user.uid);
   }, [times]);
 
+  useEffect(() => {
+    localStorage.setItem('themeUser', theme);
+  }, [theme]);
+
   const animBodyTimer = useAnimation();
   const animScrmble = useAnimation();
 
@@ -126,7 +135,7 @@ function App() {
       transition: {
         duration: 0.2,
       },
-      height: 440,
+      height: 520,
     },
     min: {
       scale: 0,
@@ -140,7 +149,7 @@ function App() {
   };
   return (
     <div id="body" data-theme={theme}>
-      <Header changeTheme={(newTheme) => changeTheme(newTheme)} />
+      <Header changeTheme={(newTheme) => changeTheme(newTheme)} theme={theme} />
       <div className="App">
         <motion.div
           className="bodyTimer"
@@ -157,6 +166,7 @@ function App() {
           </motion.div>
           <ModuleTime end={(time) => end(time)} isLive={(live) => liveGif(live)} />
         </motion.div>
+        <Average statistics={statistics} />
         <Times
           times={times}
           reset={reset}
@@ -164,7 +174,6 @@ function App() {
           moreTwo={(a, b) => moreTwo(a, b)}
           removeSingle={(a, b) => removeSingle(a, b)}
         />
-        <Average statistics={statistics} />
       </div>
     </div>
   );
