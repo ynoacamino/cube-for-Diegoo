@@ -62,7 +62,7 @@ function ModuleTime({ end, isLive }) {
       onTouchEnd={() => go2({ keyCode: 32 })}
     >
       {!live && <Reloj stop={time} />}
-      {live && <Clock men={(mSeg) => handle(mSeg)} />}
+      {live && <Clock men={handle} />}
       <span className="instruccionesApp">Presiona spacio</span>
     </div>
   );
