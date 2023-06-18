@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+// haciendo git add commit push desde termix and vim
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
